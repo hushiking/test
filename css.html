@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            padding: 100px;
+        }
+        .wrap {
+            width: 800px;
+        }
+        .top {
+            width: 100%;
+            display: flex;
+        }
+        .top span {
+            /* margin-left: 28.5%; */
+            flex: 1;
+            text-align: right;
+        }
+        .mid {
+            height: 30px;
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            background: #ddd;
+        }
+        .one {
+            float: left;
+            height: 30px;
+            width: 75%;
+            border-radius: 15px;
+            background: rgb(238, 106, 44);
+        }
+        .two {
+            float: right;
+            height: 30px;
+            width: 12%;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 15px;
+            color: #fff;
+            background: rgb(241, 149, 143);
+        }
+        .bottom {
+            width: 100%;
+            display: flex;
+        }
+        .bottom>span {
+            flex: 1;
+            text-align: right;
+            position: relative;
+        }
+        .bottom>span:first-child {
+            display: flex;
+        }
+        .bottom>span>span {
+            flex: 1;
+        }
+        .bottom span.time {
+            text-align: left;
+        }
+        .bottom span.day {
+            position: relative;
+        }
+        .bottom span.day::after {
+            position: absolute;
+            top: -10px;
+            right: 12px;
+            display: block;
+            content: '';
+            border: 5px solid transparent;
+            border-bottom-color: #666;
+        }
+        /* .bottom :nth-child(2n) {
+            border-bottom: 1px dashed #333;
+        } */
+        span>i {
+            position: absolute;
+            top: 50%;
+            right: 32%;
+            width: 50%;
+            border-top: 1px dashed #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="top">
+            <span>333°</span>
+            <span>556°</span>
+            <span>888°</span>
+        </div>
+        <div class="mid">
+            <span class="one">
+                <span class="two">188°</span>
+            </span>
+        </div>
+        <div class="bottom">
+            <span><span class="time">时间</span><span class="day">10天</span><i></i></span>
+            <span class="day">20天<i></i></span>
+            <span class="day">30天<i></i></span>
+        </div>
+    </div>
+</body>
+</html>
