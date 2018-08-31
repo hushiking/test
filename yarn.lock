@@ -6,7 +6,7 @@ almond@~0.3.1:
   version "0.3.3"
   resolved "http://registry.npm.taobao.org/almond/download/almond-0.3.3.tgz#a0e7c95ac7624d6417b4494b1e68bff693168a20"
 
-immutable@v4.0.0-rc.9:
+immutable@4.0.0-rc.9:
   version "4.0.0-rc.9"
   resolved "http://registry.npm.taobao.org/immutable/download/immutable-4.0.0-rc.9.tgz#1e6e0094e649013ec3742d2b5aeeca5eeda4f0bf"
 
@@ -14,9 +14,9 @@ jquery-mousewheel@~3.1.13:
   version "3.1.13"
   resolved "http://registry.npm.taobao.org/jquery-mousewheel/download/jquery-mousewheel-3.1.13.tgz#06f0335f16e353a695e7206bf50503cb523a6ee5"
 
-jquery@2.2.4:
-  version "2.2.4"
-  resolved "http://registry.npm.taobao.org/jquery/download/jquery-2.2.4.tgz#2c89d6889b5eac522a7eea32c14521559c6cbf02"
+jquery@^3.3.1:
+  version "3.3.1"
+  resolved "http://registry.npm.taobao.org/jquery/download/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
 
 lodash@^4.17.4:
   version "4.17.4"
