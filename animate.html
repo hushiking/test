@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        header {
+            height: 500px;
+            background-color: pink;
+            display: block;
+            opacity: 1;
+            transition: all 2s ease;
+        }
+        section:nth-of-type(1) {
+            position: relative;
+            top: 0;
+            height: 800px;
+            background-color:blanchedalmond;
+            transition: all 2s ease;
+        }
+        section:nth-of-type(2) {
+            position: relative;
+            top: 0;
+            height: 800px;
+            background-color: blueviolet;
+            transition: all 2s ease;
+        }
+        footer {
+            position: relative;
+            top: 0;
+            height: 100px;
+            background-color: aquamarine;
+            transition: all 2s ease;
+        }
+    </style>
+</head>
+<body>
+    <header id="header"></header>
+    <section id="section1"></section>
+    <section id = "section2"></section>
+    <footer id="footer"></footer>
+    <script>
+        var header = document.getElementById('header')
+        var footer = document.getElementById('footer')
+        var section1 = document.getElementById('section1')
+        var section2 = document.getElementById('section2')
+        section1.onclick = function() {
+            header.style.opacity = 0
+            // setTimeout(() => {
+            //     header.style.display = 'none'
+            // }, 2000)
+            section1.style.top = '-500px'
+            section2.style.top = '-500px'
+            footer.style.top = '-500px'
+        }
+    </script>
+</body>
+</html>
