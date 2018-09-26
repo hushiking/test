@@ -11,8 +11,15 @@
 <body>
     <script src="./node_modules/immutable/dist/immutable.min.js"></script>
     <script>
-        var map1 = Immutable.fromJS({ a: 45, b: 64, c: 72 })
-        var list1 = Immutable.fromJS([1, 2, 4, { a: [1, 2, 3], b: 64 }, 7, 8])
+        var map1 = Immutable.fromJS({
+            a: 45,
+            b: 64,
+            c: 72
+        })
+        var list1 = Immutable.fromJS([1, 2, 4, {
+            a: [1, 2, 3],
+            b: 64
+        }, 7, 8])
         var map2 = map1.map(v => v * 10)
         console.log(map2.toJS())
         var map3 = map1.mapEntries(([k, v]) => [k.toUpperCase(), v * 2])
@@ -24,29 +31,25 @@
 
         var layout = {
             "group_name": "国家",
-            "children": [
-                {
+            "children": [{
                     "obj_name": "china",
                     "display_name": "中国"
                 },
                 {
                     "group_name": "省份",
-                    "children": [
-                        {
+                    "children": [{
                             "obj_name": "henan",
                             "display_name": "河南"
                         },
                         {
                             "group_name": "城市",
-                            "children": [
-                                {
+                            "children": [{
                                     "obj_name": "xinyang",
                                     "display_name": "信阳"
                                 },
                                 {
                                     "group_name": "区县",
-                                    "children": [
-                                        {
+                                    "children": [{
                                             "obj_name": "guangshan",
                                             "display_name": "光山"
                                         },
@@ -71,7 +74,7 @@
         list2.map((v, k) => console.log(v, k))
 
         var list3 = list1.filter((v, k) => {
-            if (v % 2 ===0) {
+            if (v % 2 === 0) {
                 return true;
             }
         })
@@ -94,28 +97,25 @@
 
         var list5 = Immutable.fromJS([{
             group_name: '一级',
-            children: [
-                {
-                    name: 'one',
-                    display_name: '标签1'
-                }
-            ]}, {
+            children: [{
+                name: 'one',
+                display_name: '标签1'
+            }]
+        }, {
             group_name: '一级二',
-            children: [
-                {
+            children: [{
                     name: 'two',
                     display_name: '标签2'
                 },
                 {
                     group_name: '二级一',
-                    children: [
-                        {
-                            name: 'three',
-                            display_name: '标签3'
-                        }
-                    ]
+                    children: [{
+                        name: 'three',
+                        display_name: '标签3'
+                    }]
                 }
-            ]}, {
+            ]
+        }, {
             name: 'first',
             display_name: '大标签'
         }])
@@ -130,24 +130,37 @@
         })
         console.log(list6.toJS())
 
-        var a = [{a: 1, b: []}, {c: 'x', d: 'y'}, {a:2, b: [{c:'x'},{d:'w'}]}]
-        a.forEach(function(v,i){
+        var a = [{
+            a: 1,
+            b: []
+        }, {
+            c: 'x',
+            d: 'y'
+        }, {
+            a: 2,
+            b: [{
+                c: 'x'
+            }, {
+                d: 'w'
+            }]
+        }]
+        a.forEach(function (v, i) {
             console.log(v['c'])
-            if(v && v['c'] ) {
+            if (v && v['c']) {
                 console.log('1,', a)
-                a.splice(i,1)
+                a.splice(i, 1)
             }
-            if (v && v.b && v.b.length>0) {
+            if (v && v.b && v.b.length > 0) {
                 console.log('2,', a)
             } else {
                 console.log('3,', a, i)
-                a.splice(i,1)
+                a.splice(i, 1)
                 i = 0
             }
         })
         console.log(a)
 
-        var b = [1,2,3,4,5,6]
+        var b = [1, 2, 3, 4, 5, 6]
         b.forEach(b => console.log(b))
         b.forEach((v, i) => {
             if (v === 5) {
