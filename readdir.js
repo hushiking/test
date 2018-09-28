@@ -3,6 +3,7 @@ const readdir = function (path) { // 读文件函数
     return new Promise((res, rej) => {
         fs.readdir(path, (err, files) => {
             if (err) res(err)
+            console.log('files', files)
             res(files)
         })
     })
@@ -28,6 +29,6 @@ const getdirs = async function (filepath) {
     // console.log(sendFiles)
     return sendFiles
 }
-const dir = getdirs('../wepy-redux-boilerplate/src/store')
+const dir = getdirs('./node_modules/jquery')
 console.log('>>>', dir) // async函数运行结果为Promise对象，使用then方法获取返回值
 dir.then(v => console.log(v))

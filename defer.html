@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>deferred</title>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        // 阮一峰 jQuery的deferred对象详解
+        var dtd = $.Deferred(); // 新建一个Deferred对象
+
+        var wait = function (dtd) {
+
+            var tasks = function () {
+
+                alert("执行完毕！");
+                // resolve的数据能带到done函数或者then函数的done回调中
+                dtd.resolve('hello'); // 改变Deferred对象的执行状态
+
+            };
+
+            setTimeout(tasks, 2000);
+
+            // return dtd;
+            return dtd.promise();
+
+        };
+
+        var d = wait(dtd)
+
+        d.then(function (arg) {
+            console.log('变量', arg)
+            console.log('这里也成功了！')
+        })
+
+        $.when(d)
+
+            .done(function (arg) {
+                console.log('参数', arg)
+                console.info("哈哈，成功了！");
+            })
+
+            .fail(function () {
+                alert("出错啦！");
+            });
+        
+        // dtd.promise()方法屏蔽了resolve与reject方法
+        d.resolve();
+    </script>
+</body>
+
+</html>

@@ -16,6 +16,7 @@
 
         // 每隔一秒输出一个数
         for (var i = 0; i < 5; i++) {
+            // 每个i都处于独立作用域，不会覆盖
             (function (i) {
                 setTimeout(function () {
                     console.log(i)
@@ -28,6 +29,13 @@
                 return function () {
                     console.log(i)
                 }
+            }(i)), 1000 * (i + 1))
+        }
+
+        for (var i = 0; i < 5; i++) {
+            // 第一个参数需要函数才能在指定时间运行，否则直接运行
+            setTimeout((function (i) {
+                console.log(i)
             }(i)), 1000 * (i + 1))
         }
 
