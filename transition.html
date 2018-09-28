@@ -34,6 +34,18 @@
             background-color: aquamarine;
             transition: all 2s ease;
         }
+        /* 贝塞尔曲线：http://cubic-bezier.com/#.14,.63,.79,.21 */
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            margin-left: 80px;
+            margin-top: 80px;
+            transition: transform 3s 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .box1:hover {
+            transform: translate(230px, 50px);
+        }
     </style>
 </head>
 <body>
@@ -41,7 +53,10 @@
     <section id="section1"></section>
     <section id = "section2"></section>
     <footer id="footer"></footer>
+    <div class="box1"></div>
     <script>
+        // 过渡效果使用:hover与:focus这样的伪类来实现，也可以使用js在合适的时机修改对应元素的样式
+        // http://www.hangge.com/blog/cache/detail_986.html#
         var header = document.getElementById('header')
         var footer = document.getElementById('footer')
         var section1 = document.getElementById('section1')
