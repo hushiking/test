@@ -1,0 +1,66 @@
+<html>
+<meta charset="utf8">
+<style>
+    .vertical {
+        display: table-cell;
+        width: 100px;
+        height: 100px;
+        border: 1px solid darkorchid;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .outer {
+        width: 300px;
+        height: 500px;
+        margin-top: 50px;
+        border: 1px solid red;
+        position: relative;
+    }
+
+    /* position:absolute;display:table-cell;等同于display:block;position:absolute;决定定位使得table-cell失效 */
+    /* vertical-align只作用于inline与table-cell类型元素，所以外面还需要套上一层盒子设置table，然后再给p元素设置table-cell */
+    .Absolute-Center {
+        display: table-cell;
+        position: absolute;
+        margin: auto;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        width: 100px;
+        height: 100px;
+        border: 1px solid red;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .center {
+        display: table-cell;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    /* .Absolute-Center p {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+    } */
+</style>
+
+<body>
+    <div class="vertical">
+        <p>居中对齐</p>
+    </div>
+    <div class="outer">
+        <div class="Absolute-Center">
+            <div class="center">
+                <p>居中</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

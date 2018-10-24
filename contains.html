@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>某个DOM节点是否包含某个DOM节点</title>
+</head>
+
+<body>
+    <div class="first">
+        <div class="first-child">firstChild</div>
+    </div>
+    <div class="second">
+        <div class="second-child">
+            <div class="second-child-child">second-child-child</div>
+        </div>
+    </div>
+    <script>
+        // 基本所有浏览器都支持Node.contains()方法，移动端使用毫无压力
+        var a = document.querySelector('.first-child');
+        var b = document.querySelector('.second-child-child');
+        var c = document.querySelector('.first');
+        var d = document.querySelector('.second');
+
+        var contains = document.documentElement.contains ?
+            function(parent, node) {
+                return parent !== node && parent.contains(node)
+            } :
+            function (parent, node) {
+                while (node && (node = node.parentNode))
+                    if (node === parent) return true
+                return false
+            }
+
+        console.log(contains(c, a))
+        console.log(contains(d, a))
+        console.log(contains(d, b))
+    </script>
+</body>
+
+</html>
