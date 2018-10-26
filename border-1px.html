@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script>
+        var scale = 1 / window.devicePixelRatio // 1\2\3
+        document.write(
+            `
+      <meta name="viewport"
+        content="initial-scale=${scale}, maximum-scale=${scale}, minimum-scale=${scale}, user-scalable=no"> 
+      `
+        )
+    </script>
+    <script>
+        var width = document.documentElement.clientWidth / window.devicePixelRatio
+        var css = `
+    html{
+      font-size: ${width / 10 * window.devicePixelRatio}px;
+    }
+    `
+        document.write(`<style>${css}</style>`)
+    </script>
+
+    <title>JS Bin</title>
+
+</head>
+
+<body>
+    <!-- 
+        Retina屏幕css的1px相当于设备中的2px或者3px，要求1px必须也代表设备中的1px，推荐以下做法：
+        页面整体缩放50%，即meta里设置50%，然后将rem设置为原有像素的2倍
+        1. 获取设备像素比（1/2/3）
+        2. initial-scale = 1/像素比
+        3. 把rem变为rem*像素比
+        4. 边框始终是border: 1px solid red
+     -->
+    <section id="section1">
+        <img src="http://placehold.it/100x100" alt="">
+        <div class="tags">
+            <span>标签1</span>
+            <span>标签2</span>
+            <span>标签3</span>
+            <span>标签4</span>
+        </div>
+
+    </section>
+    <section id="section2">
+        <h2>文字文字文字</h2>
+        <h2>文字文字文字</h2>
+        <p>文字文字文字文字文字文字</p>
+        <p>文字文字文字文字文字文字</p>
+    </section>
+    <style>
+        body {
+            background: white;
+            margin: 0;
+            font-size: 0.5rem;
+        }
+
+        #section1 {
+            text-align: center;
+            border-bottom: 1px solid red;
+        }
+
+        #section1 img {
+            width: 2.3125rem;
+            margin-top: 1.875rem;
+            border-radius: 50%;
+            margin-bottom: 1.0625rem;
+        }
+
+        #section1 .tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 0 0.5rem;
+        }
+
+        #section1 span {
+            background: #D8D8D8;
+            width: 4rem;
+            line-height: 0.75rem;
+            height: 0.75rem;
+            margin: 0 0 0.75rem;
+        }
+
+        #section2 {
+            background: #EFEFEF;
+            text-align: center;
+            padding: 1.5625rem 0 .9375rem;
+        }
+
+        #section2 h2 {
+            background: #d8d8d8;
+            display: inline-block;
+            width: 6.25rem;
+            margin: 0 0 .625rem;
+            border-radius: .4375rem;
+            line-height: 1.25rem;
+            height: 1.25rem;
+        }
+
+        #section2 p {
+            background: #E8E8E8;
+            width: 7.8125rem;
+            display: inline-block;
+            margin: 0 0 .625rem;
+            line-height: .75rem;
+            height: .75rem;
+            border-radius: .4375rem;
+        }
+    </style>
+</body>
+
+</html>
