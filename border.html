@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0">
+    <script>
+        var width = document.documentElement.clientWidth; //获取当前视口的宽度
+        console.log(width)
+        var scale = width / 320; //基本尺寸是320px
+        console.log(scale)
+
+        var css = `
+    html {
+        font-size: ${320*scale/10}px;
+    }
+    `
+        console.log(document.documentElement.html)
+        document.write(`<style>${css}</style>`)
+        console.log(document.documentElement.html)
+    </script>
+
+    <title>JS Bin</title>
+</head>
+
+<body>
+    <!-- 
+        1. 浏览器禁止980px像素缩放，即默认的layout viewport宽度
+        2. 设置html{font-size: 页面宽度/10 px}，即1rem
+        3. 10rem == 页面宽度
+        4. 所有单位都使用rem，这样长度以页面宽度为基准，假如设计稿以320px为基准，16px就相当于16/320*10rem=0.5rem
+        5. 此时，页面可兼容任何手机屏幕
+     -->
+    <section id="section1">
+        <img src="http://via.placeholder.com/100x100" alt="">
+        <div class="tags">
+            <span>标签1</span>
+            <span>标签2</span>
+            <span>标签3</span>
+            <span>标签4</span>
+        </div>
+    </section>
+    <section id="section2">
+        <h2>文字文字1</h2>
+        <h2>文字文字2</h2>
+        <p>文字文字文字文字文字1</p>
+        <p>文字文字文字文字文字2</p>
+    </section>
+    <style>
+        body {
+            background: white;
+            margin: 0;
+            font-size: .5rem;
+        }
+
+        #section1 {
+            text-align: center;
+        }
+
+        #section1 img {
+            width: 2.3125rem;
+            margin-top: 1.875rem;
+            border-radius: 50%;
+            margin-bottom: 1.0625rem;
+        }
+
+        #section1 .tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 0 .5rem;
+        }
+
+        #section1 span {
+            background-color: #D8D8D8;
+            width: 4rem;
+            line-height: 0.75rem;
+            height: 0.75rem;
+            margin: 0 0 0.75rem;
+        }
+
+        #section2 {
+            background: #EFEFEF;
+            text-align: center;
+            padding: 1.5625rem 0 0.9375rem;
+        }
+
+        #section2 h2 {
+            background: #D8D8D8;
+            display: inline-block;
+            width: 6.25rem;
+            margin: 0 0 0.625rem;
+            border-radius: 0.4375rem;
+            line-height: 1.25rem;
+        }
+
+        #section2 p {
+            background-color: #d8d8d8;
+            width: 7.8125rem;
+            display: inline-block;
+            margin: 0 0 0.625rem;
+            line-height: 0.75rem;
+            height: 0.75rem;
+            border-radius: 0.4375rem;
+        }
+    </style>
+</body>
+
+</html>
