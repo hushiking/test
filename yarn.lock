@@ -6,6 +6,10 @@ almond@~0.3.1:
   version "0.3.3"
   resolved "http://registry.npm.taobao.org/almond/download/almond-0.3.3.tgz#a0e7c95ac7624d6417b4494b1e68bff693168a20"
 
+commander@*:
+  version "2.19.0"
+  resolved "http://registry.npm.taobao.org/commander/download/commander-2.19.0.tgz#f6198aa84e5b83c46054b94ddedbfed5ee9ff12a"
+
 immutable@4.0.0-rc.9:
   version "4.0.0-rc.9"
   resolved "http://registry.npm.taobao.org/immutable/download/immutable-4.0.0-rc.9.tgz#1e6e0094e649013ec3742d2b5aeeca5eeda4f0bf"
@@ -21,6 +25,12 @@ jquery@^3.3.1:
 lodash@^4.17.4:
   version "4.17.4"
   resolved "http://registry.npm.taobao.org/lodash/download/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
+
+mockjs@^1.0.1-beta3:
+  version "1.0.1-beta3"
+  resolved "http://registry.npm.taobao.org/mockjs/download/mockjs-1.0.1-beta3.tgz#d234f3c27256397564f2c955142e891909537209"
+  dependencies:
+    commander "*"
 
 select2@4.0.5:
   version "4.0.5"

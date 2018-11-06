@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BFC</title>
+    <style>
+        body {
+            width: 300px;
+            position: relative;
+        }
+
+        .aside {
+            width: 100px;
+            height: 150px;
+            float: left;
+            background: #f66;
+        }
+
+        .main {
+            height: 200px;
+            background: #fcc;
+            overflow: hidden;
+        }
+
+        .box {
+            position: relative;
+            height: 100px;
+            width: 100px;
+            border: 1px solid pink;
+            box-sizing: border-box;
+        }
+
+        .box::before,
+        .box::after {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            content: '';
+            border: 10px solid transparent;
+        }
+        /* 颜色浅 border-top-width: 12px;颜色深 border-top-width: 11px; */
+        .box::before {
+            border-top-width: 12px;
+            border-top-color: pink;
+            margin-left: -11px;
+        }
+
+        .box::after {
+            border-width: 9px;
+            border-top-width: 10px;
+            border-top-color: green;
+            margin-left: -10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="aside"></div>
+    <div class="main"></div>
+    <br>
+    <div class="box"></div>
+</body>
+
+</html>

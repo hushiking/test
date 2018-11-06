@@ -7,10 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>deferred</title>
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./layer/layer.js"></script>
 </head>
 
 <body>
+    <button id="test1">layer 弹窗</button>
     <script>
+        $('#test1').on('click', function() {
+            layer.msg('deferred 对象详解')
+        })
         // 阮一峰 jQuery的deferred对象详解
         var dtd = $.Deferred(); // 新建一个Deferred对象
 
