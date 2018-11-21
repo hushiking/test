@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试 jquery 的区别</title>
+    <!-- <script src="./script/jquery-1.9.1.js"></script> -->
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <style>
+        .mark {
+            position: fixed;
+            bottom: 200px;
+            left: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="p1">This is a p1.</p>
+    <p class="p2">This is a p2.</p>
+    <p class="p3">This is a p3.</p>
+    <p class="p4">This is a p4.</p>
+    <p class="mark">
+        <strong>jquery类名添加事件只对初始具有的名称有效;动态改变类名不影响最开始添加的事件</strong>
+        <em>可以用on或者delegate绑定事件</em>
+    </p>
+    <script>
+        $('.p4').not('.reopen').click(function () {
+            $('p').css('background-color', 'pink');
+        })
+        $('.p1').click(function () {
+            $('.p4').addClass('reopen').removeClass('p4');
+        })
+        $('.reopen').click(function () {
+            $('.p1').css('color', 'yellow');
+        })
+        $('body').on('click', '.reopen', function() {
+            $('.p2').css('color', 'green');
+        })
+    </script>
+</body>
+
+</html>
