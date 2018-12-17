@@ -1,5 +1,5 @@
 'use strict';
 
-var _immutableMin = require('./node_modules/immutable/dist/immutable.min.js');
+var _immutableMin = require('immutable/dist/immutable.min');
 
 console.log('has>>>', _immutableMin.has);
