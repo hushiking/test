@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>测试 jquery 的区别</title>
+    <title>测试 jquery-1.9.1与3.0 的区别</title>
     <!-- <script src="./script/jquery-1.9.1.js"></script> -->
-    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <style>
         .mark {
             position: fixed;
@@ -36,9 +36,23 @@
         $('.reopen').click(function () {
             $('.p1').css('color', 'yellow');
         })
-        $('body').on('click', '.reopen', function() {
+        $('body').on('click', '.reopen', function () {
             $('.p2').css('color', 'green');
         })
+    </script>
+    <script>
+        (function (m, ei, q, i, a, j, s) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            j = ei.createElement(q),
+                s = ei.getElementsByTagName(q)[0];
+            j.async = true;
+            j.charset = 'UTF-8';
+            j.src = 'https://static.meiqia.com/dist/meiqia.js?_=t';
+            s.parentNode.insertBefore(j, s);
+        })(window, document, 'script', '_MEIQIA');
+        _MEIQIA('entId', 82396);
     </script>
 </body>
 
