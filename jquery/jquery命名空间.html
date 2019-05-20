@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>xxxxx</title>
+  <style type="text/css">
+    #parent {
+      margin: 100px auto 0 auto;
+      width: 600px;
+      height: 200px;
+      border: 1px solid #ccc;
+      position: relative;
+    }
+
+    .log {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    #btns {
+      position: relative;
+      margin: 20px auto 0 auto;
+      width: 600px;
+    }
+    .pop {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: -205px;
+      width: 200px;
+      height: 200px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <div id="parent">
+    <div class="log"></div>
+  </div>
+  <div id="btns">
+    <button id="btn1" type="button" onclick="$p.trigger('click.n1.n2.n3.n4');">trigger('click.n1.n2.n3.n4')</button>
+    <button id="btn2" type="button" onclick="$p.trigger('click.n1.n2.n3');">trigger('click.n1.n2.n3')</button>
+    <button id="btn3" type="button" onclick="$p.trigger('click.n1.n2');">trigger('click.n1.n2')</button>
+    <button id="btn4" type="button" onclick="$p.trigger('click.n1');">trigger('click.n1')</button>
+    <button id="btn5" type="button" onclick="$p.trigger('click');">trigger('click')</button>
+    <div class="pop">
+      <p>我是弹窗</p>
+    </div>
+  </div>
+  <script>
+    $(document).on('mouseenter', '#btns', function() {
+      $('.pop').show()
+    })
+    $(document).mouseup(function(e) {
+      var _con = $('.pop')
+      // 判断点击事件发生在区域外的条件是
+      if (!_con.is(e.target) && _con.has(e.target).length === 0) { // 1.点击事件的对象不是目标区域本身 2.事件对象同时也不是目标区域的子元素
+        $('.pop').hide()
+      }
+    })
+    // js实现
+    // document.addEventListener('click', function(e) {...})
+    /* $(document).on('click', function(e) {
+      var cDom = document.querySelector('.pop')
+      var tDom = e.target
+      if (tDom === cDom || cDom.contains(tDom)) {
+
+      } else {
+        $('.pop').hide()
+      }
+    }) */
+  </script>
+  <script>
+    function log($e, msg) {
+      var $log = $e.find('.log');
+      $log.append('<p>' + msg + '</p>');
+    }
+
+    var $p = $('#parent');
+
+    $p.on('click.n1.n2.n3.n4', function () {
+      log($p, 'click n1 n2 n3 n4');
+    });
+    $p.on('click.n1.n2.n3', function () {
+      log($p, 'click n1 n2 n3');
+    });
+    $p.on('click.n1.n2', function () {
+      log($p, 'click n1 n2');
+    });
+    $p.on('click.n1', function () {
+      log($p, 'click n1');
+    });
+    $p.on('click', function () {
+      log($p, 'click');
+    });
+  </script>
+</body>
+
+</html>
