@@ -35,12 +35,12 @@
         })
         $('.reopen').click(function () {
             $('.p1').css('color', 'yellow');
-        })
+        }) // 初始没有reopen类型的元素,所以不生效
         $('body').on('click', '.reopen', function () {
             $('.p2').css('color', 'green');
-        })
+        }) // 使用on绑定名称的事件生效
     </script>
-    <script>
+    <!-- <script>
         (function (m, ei, q, i, a, j, s) {
             m[i] = m[i] || function () {
                 (m[i].a = m[i].a || []).push(arguments)
@@ -53,7 +53,7 @@
             s.parentNode.insertBefore(j, s);
         })(window, document, 'script', '_MEIQIA');
         _MEIQIA('entId', 82396);
-    </script>
+    </script> -->
 </body>
 
 </html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>三种方式创建登录模态框</title>
+</head>
+<body>
+  <button id="login-btn">登录</button>
+  <button id="loginBtn">登录浮框</button>
+  <script>
+    // 引入代理实现单例模式
+    var CreateDiv = function(html) {
+      this.html = html
+      this.init()
+    }
+    CreateDiv.prototype.init = function() {
+      var div = document.createElement('div')
+      div.innerHTML = this.html
+      document.body.appendChild(div)
+    }
+    var proxySingleton = (function() {
+      var instance
+      return function(html) {
+        if (!instance) {
+          instance = new CreateDiv(html)
+        }
+        return instance
+      }
+    })()
+    // 说明：我们负责管理单例的逻辑移到了代理类 proxySingleton 中。这样一来， CreateDiv 就变成了一个普通的类，他跟 proxySingleton 组合起来可以达到单例模式的效果
+    var a = proxySingleton('我是代理实现单例模式登录框1')
+    var b = proxySingleton('我是代理实现单例模式登录浮框1')
+    console.log('代理实现单例模式==>', a === b);
+
+    // 惰性单例模式,指的是在需要的时候才创建对象的实例
+    var createLoginLayer = (function() {
+      var div
+      return function(text) {
+        if (!div) {
+          div = document.createElement('div')
+          div.innerHTML = text + Math.floor(Math.random() * 10)
+          document.body.appendChild(div)
+        }
+        return div
+      }
+    })()
+    // 在点击按钮时才创建元素(惰性),这里的对惰性单例的实现主要是只有点击了网页上的登录按钮，才会去创建登录框的dom节点，并且只是创建一次
+    document.getElementById('login-btn').onclick = function() {
+      var loginLayer = createLoginLayer('我是登录模态框2')
+      // loginLayer.style.display = 'block'
+    }
+
+    // 单例模式与创建弹框代码解耦(通用的单例模式)
+    var createLayer = function(text) { // 创建登录模态框
+      var div = document.createElement('div')
+      div.innerHTML = text
+      // div.style.display = 'none'
+      document.body.appendChild(div)
+      return div
+    }
+    var getSingle = function(fn) { // 通用的单例验证方法(使用闭包保存result变量不释放)
+      var result
+      return function() {
+        /* if (!result) {
+          result = fn.apply(this, arguments)
+          return result
+        }
+        return result */
+        return result || (result = fn.apply(this, arguments))
+      }
+    }
+    var createSingleLayer = getSingle(createLayer.bind(this, '我是登录浮框3'))
+    // 不管你执行多少次 createSingleLayer() 方法，都只会生产一个 div 节点
+    document.getElementById('loginBtn').onclick = function() {
+      createSingleLayer()
+    }
+  </script>
+  <script>
+    // 简单的单例模式实现
+    var singleton = (() => {
+      var instance
+      var createInstance = () => {
+        this.a = 1
+        this.b = 2
+      }
+      return getInstance = () => {
+        if (!instance) {
+          instance = createInstance()
+        }
+        return instance
+      }
+    })()
+    var test = singleton()
+    var test1 = singleton()
+    console.log('简单单例模式==>', test === test1)
+  </script>
+</body>
+</html>
