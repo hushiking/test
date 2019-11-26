@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="canvasImagesd"
+    style="margin: 0 auto;width: 981px;height: 722px;position: fixed;z-index: 9999;background-color: #ededed;display: none;">
+    <canvas id="canvas" style="width: 100%;height: 100%;"></canvas>
+  </div>
+  <div>
+    <img id="img" style="width: 981px;height: 722px; display:block; margin: 0 auto;" src="#" alt="...">
+  </div>
+</body>
+<script>
+  function draw() {
+    var imgDom = document.getElementById('img') 
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext("2d");
+    var imgBg = new Image();
+    console.log('img', imgBg.src)
+    imgBg.src = '../images/play.png'
+    window.onload = function () {
+      // 设置背景色
+      ctx.fillStyle = "#ededed";
+      ctx.fillRect(0, 0, 981, 722);
+      // 文字字体和颜色
+      ctx.fillStyle = "#00ff00";
+      ctx.font = "20px";
+      ctx.drawImage(imgBg, 0, 0, 981, 722, 0, 0, 981, 722);
+      ctx.fillText("canvas生成图片测试", 100, 30);
+      ctx.fillText("长按保存到手机", 120, 120);
+      // 生成的data的路径,可以通过php生成图片存到数据库,单存data路径不合适,高清图片情况下会出现图片的残缺
+      var srccc = canvas.toDataURL("image/png");
+      imgDom.src = srccc
+      // $('#img').attr("src", srccc);
+    }
+  }
+
+  draw();
+</script>
+
+</html>
