@@ -25,7 +25,7 @@
 
       //使用代理函数进行加载
       //如果某一天不需要预加载了，就把loadImgProxy换成loadImg即可
-      loadImgProxy(eleImg, 'https://i.postimg.cc/tRMNsqnJ/Yukee4.png');
+      loadImgProxy(eleImg, 'http://i1.fuimg.com/658970/d788ab912781276e.jpg');
     }
 
     //创建img标签
@@ -63,8 +63,11 @@
       var imgCache = new Image();
 
       return function (img, src) {
+        console.log('===1', this)
         imgCache.onload = function () {
-          loadImg(img, this.src);
+          console.log('===2', this)
+          // loadImg(img, this.src);
+          loadImg(img, src);
         };
 
         // loadImg(img, 'loading.gif');

@@ -21,6 +21,13 @@
       'https://i.postimg.cc/Z5y7b9fJ/Yukee9.png',
       'https://i.postimg.cc/vBXXq5mt/Yukee10.png'
     ];
+    imgSrcs = [
+      'http://i1.fuimg.com/658970/0ad9909d204bc8fa.jpg',
+      'http://i1.fuimg.com/658970/bd7c20c17331d43e.jpg',
+      'http://i1.fuimg.com/658970/83983b81996924c2.jpg',
+      'http://i1.fuimg.com/658970/2bdadc39bc25eff4.jpg',
+      'http://i1.fuimg.com/658970/c4473eea6fd6dc9f.jpg'
+    ]
 
     $(document).ready(function () {
       $('#btnLoadImg').bind('click', function () {
@@ -48,7 +55,7 @@
 
     function createLoadImgProxy() {
       var imgCache = new Image();
-      var promise = new Promise(function(resolve, reject) {
+      var promise = new Promise(function (resolve, reject) {
         //加载完成事件处理，加载完成后进行resolve操作
         imgCache.onload = function () {
           resolve(this.src);
