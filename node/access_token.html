@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script>
+    const hostIp = '127.0.0.1';
+const apiPort = 6060;
+    const data = {
+      appid: "wx1200e22917de4195",
+      secret: "9432033da798dd262ef64466abf4e64b",
+      grant_type: "client_credential",
+      env: "xxxx"
+    };
+
+    function getAccessToken() {
+      $.ajax({
+        url: 'http://' + hostIp + ':' + apiPort + '/' + 'access_token',
+        method: "GET",
+        success: res => { //获取access_token
+          console.log(res)
+          return res.access_token
+        },
+        error: err => {
+          console.log(err)
+        }
+      })
+    }
+
+    getAccessToken()
+  </script>
+</body>
+
+</html>

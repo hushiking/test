@@ -1,9 +1,11 @@
 {
   "dependencies": {
+    "animate.css": "^4.1.1",
     "immutable": "4.0.0-rc.9",
     "jquery": "^3.3.1",
     "lodash": "^4.17.4",
     "mockjs": "^1.0.1-beta3",
+    "request": "^2.88.2",
     "select2": "4.0.5"
   }
 }
